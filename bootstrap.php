@@ -11,5 +11,6 @@ $webRoot = $webRoot . $foder;
 define("_WEB_ROOT", $webRoot);
 
 require_once "./configs/routes.php";
+require_once "./Core/Route.php";
 require_once "./app/App.php";
 require_once "./Core/Controller.php";

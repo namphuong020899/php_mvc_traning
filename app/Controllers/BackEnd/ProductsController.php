@@ -1,6 +1,6 @@
 <?php
 
-class ProductController
+class ProductsController
 {
 
     public function index()
@@ -8,8 +8,8 @@ class ProductController
         echo __METHOD__;
     }
 
-    public function detail($id)
+    public function show($id)
     {
-        echo __METHOD__;
+        echo "Id : {$id}";
     }
 }
