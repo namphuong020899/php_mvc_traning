@@ -10,9 +10,10 @@ class App
 
         $this->__routes = new Route();
 
-        if (!empty($routes['defaultController'])) {
-            $this->__controller = $routes['defaultController'];
-        }
+        // if (!empty($routes['defaultController'])) {
+        //     $this->__controller = $routes['defaultController'];
+        // }
+        $this->__controller = '';
         $this->__action = 'index';
         $this->__params = [];
 
@@ -63,8 +64,11 @@ class App
         if (!empty($urlArr[0])) {
             $this->__controller = ucfirst($urlArr[0]);
         }
-
+        if (empty($urlCheck)) {
+            $urlCheck = $this->__controller;
+        }
         $this->__controller = $this->__controller . 'Controller';
+        // echo $urlCheck;
         if (file_exists("app/Controllers/{$urlCheck}.php")) {
             require_once "Controllers/{$urlCheck}.php";
             /* Check class exists */
