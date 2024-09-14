@@ -2,7 +2,7 @@
 
 class Connection
 {
-    private static $_INSTANCE = null;
+    private static $_INSTANCE = null, $__CONN = null;
 
     private function __construct($config)
     {
@@ -14,6 +14,8 @@ class Connection
             ];
             $conn = new PDO($dns, $config['DB_USERNAME'], $config['DB_PASSWORD'] ?? '', $options);
 
+            self::$__CONN = $conn;
+
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -22,7 +24,8 @@ class Connection
     public static function getInstance($config)
     {
         if (self::$_INSTANCE == null) {
-            self::$_INSTANCE = new Connection($config);
+            $connection = new Connection($config);
+            self::$_INSTANCE = self::$__CONN;
         }
 
         return self::$_INSTANCE;

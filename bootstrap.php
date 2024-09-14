@@ -20,13 +20,14 @@ if (!empty($configsDir)) {
 }
 require_once "./Core/Route.php";
 require_once "./app/App.php";
+
 if (!empty($config['database'])) {
     $dbConfig = array_filter($config['database']);
 
     if (!empty($dbConfig)) {
         require_once "./Core/Connection.php";
         require_once "./Core/Database.php";
-        new Database();
     }
 }
+require_once "./Core/Model.php";
 require_once "./Core/Controller.php";
