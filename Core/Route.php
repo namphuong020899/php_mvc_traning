@@ -8,6 +8,9 @@ class Route
         unset($routes['defaultController']);
 
         $url = trim($url, '/');
+        if (empty($url)) {
+            $url = '/';
+        }
         $handle_url = $url;
         if (!empty($routes)) {
             foreach ($routes as $key => $val) {

@@ -1,6 +1,9 @@
 <?php
 
-class Model
+class Model extends Database
 {
+    public function __construct()
+    {
 
+    }
 }
