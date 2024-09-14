@@ -1,7 +1,16 @@
 <?php
-$config['database'] = [
-    'DB_HOST' => 'localhost',
-    'DB_DATABASE' => 'shopwatch',
-    'DB_USERNAME' => 'root',
-    'DB_PASSWORD' => '',
-];
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule();
+$capsule->addConnection([
+    'driver' => 'mysql',
+    'host' => '127.0.0.1',
+    'username' => 'root',
+    'password' => '',
+    'database' => 'shopwatch',
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix' => '',
+]);
+
+$capsule->bootEloquent();

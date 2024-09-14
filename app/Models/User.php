@@ -1,11 +1,8 @@
 <?php
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class User
+class User extends Eloquent
 {
-    protected $table = "users";
-
-    public function getAll()
-    {
-        return ['sp1', 'sp2', 'sp3'];
-    }
+    // protected $table = "users";
+    protected $guarded = [];
 }

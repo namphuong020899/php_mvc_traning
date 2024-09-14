@@ -11,7 +11,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data = $this->userModel->getAll();
+        $data = User::find(1)->name;
 
         $this->data['content'] = 'FrontEnd.Home.index';
         $this->data['sub_content']['users'] = $data;

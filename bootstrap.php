@@ -10,6 +10,7 @@ $foder = strtolower(str_replace($_SERVER['DOCUMENT_ROOT'], '', str_replace('\\',
 $webRoot = $webRoot . $foder;
 define("_WEB_ROOT", $webRoot);
 
+require_once "./vendor/autoload.php";
 $configsDir = scandir('configs');
 if (!empty($configsDir)) {
     foreach ($configsDir as $dir) {
@@ -20,13 +21,4 @@ if (!empty($configsDir)) {
 }
 require_once "./Core/Route.php";
 require_once "./app/App.php";
-if (!empty($config['database'])) {
-    $dbConfig = array_filter($config['database']);
-
-    if (!empty($dbConfig)) {
-        require_once "./Core/Connection.php";
-        require_once "./Core/Database.php";
-        new Database();
-    }
-}
 require_once "./Core/Controller.php";
