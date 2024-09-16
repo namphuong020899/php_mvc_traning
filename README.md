@@ -1,2 +1,3 @@
-# php_mvc_watch_ecommerce
-php_mvc_watch_ecommerce
+# php_mvc_traning
+
+1. composer update
